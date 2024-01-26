@@ -142,7 +142,6 @@ void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord
      {
          return;
      }
-    }
 
     if (node->isEndOfWord && endWord.size() != 0)
     {
@@ -151,6 +150,7 @@ void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord
     else
     {
         std::cout << prefix << std::endl;
+    }
     }
 }
 

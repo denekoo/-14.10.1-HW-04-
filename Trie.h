@@ -22,6 +22,8 @@ bool search(TrieNode*, string);
 bool isEmpty(TrieNode*);
 TrieNode* remove(TrieNode*, string, int depth = 0);
 //void findMinPrefixes(TrieNode*, char[], int, string&);
+
+
 void woodenAutoComplete (TrieNode* root, std::string prefix, std::string endWord);
 
 #endif
