@@ -143,9 +143,12 @@ void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord
             {
                 std::cout << prefix + endWord << std::endl;
                 endWord.clear();
+
                 /* return;*/
             }
-        }     
+        }
+     
+
     }
 }
 

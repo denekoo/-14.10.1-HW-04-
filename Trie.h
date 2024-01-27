@@ -2,9 +2,8 @@
 #define TRIE_H
 
 #include <string>
-using namespace std;
-
-const int ALPHABET_SIZE = 26;
+#define ALPHABET_SIZE 10
+//const int ALPHABET_SIZE = 26;
 
 // Структура узела дерева 
 struct TrieNode
@@ -17,10 +16,10 @@ struct TrieNode
 
 };
 TrieNode* getNewNode(void);
-void insert(TrieNode*, string);
-bool search(TrieNode*, string);
+void insert(TrieNode*, std::string);
+bool search(TrieNode*, std::string);
 bool isEmpty(TrieNode*);
-TrieNode* remove(TrieNode*, string, int depth = 0);
+TrieNode* remove(TrieNode*, std::string, int depth = 0);
 //void findMinPrefixes(TrieNode*, char[], int, string&);
 
 
