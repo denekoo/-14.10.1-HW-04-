@@ -146,10 +146,6 @@ void woodenAutoComplete( TrieNode* root, std::string &prefix, std::string endWor
             {
                 if (wordCompare(prefix, endWord))
                     std::cout << endWord << std::endl;
-                /*else
-                {
-                    std::cout << "No words finded!" << std::endl;
-                }*/
             }
             woodenAutoComplete(node->children[i], prefix, endWord);
             endWord.pop_back();
