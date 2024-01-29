@@ -2,11 +2,13 @@
 #include"Trie.h"
 // За основу дерева взят код из модуля.
 // функция woodenAutoComplete будет заниматься выводом возможных вариантов слов 
+//прикрутить словарь
+//сделать главный цикл
+//оформить
+
 
 int main()
 {
-
-
 	TrieNode *root = getNewNode() ;
 	// тестовые строки и добавление в дерево
 	std:: string str = "ab";
@@ -26,8 +28,7 @@ int main()
 	std::string input = "bd";
 	woodenAutoComplete(root, input, "");
 
-	//T9(root, "");
-
+	
 
 
 	return 0;

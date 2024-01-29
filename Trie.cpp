@@ -146,8 +146,6 @@ void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord
             endWord.pop_back();
         }
     }
-
-
 }
 
 

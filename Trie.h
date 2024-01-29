@@ -24,5 +24,5 @@ TrieNode* remove(TrieNode*, std::string, int depth = 0);
 
 bool wordCompare(std::string prefix, std::string endWord);
 void woodenAutoComplete (TrieNode* root, std::string prefix, std::string endWord);
-void T9(TrieNode* root, std::string result);
+
 #endif
