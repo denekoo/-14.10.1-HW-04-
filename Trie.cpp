@@ -110,16 +110,22 @@ TrieNode* remove(TrieNode* root, std::string key, int depth)
         delete (root);
         root = nullptr;
     }
-
     // возвращаем новый корень
     return root;
 }
 
 
-bool wordCompare(std::string prefix, std::string endWord)
+bool wordCompare(std::string &prefix, std::string &endWord)
 {
     int count = 0; 
-    int lenght = prefix.size();
+    int lenght = 0;
+    int prefLenght = prefix.size();
+    int endLenght = endWord.size();
+    if (prefLenght <= endLenght)
+        lenght = prefLenght;
+    else
+        lenght = endLenght;
+
     for (int i = 0; i < lenght; ++i)
     {
         if (prefix[i] == endWord[i])
@@ -128,8 +134,7 @@ bool wordCompare(std::string prefix, std::string endWord)
     return count == lenght;
 }
 
-
-void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord)
+void woodenAutoComplete( TrieNode* root, std::string &prefix, std::string endWord)
 {
     TrieNode* node = root;
     for (int i = 0; i < ALPHABET_SIZE; i++)
@@ -141,6 +146,10 @@ void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord
             {
                 if (wordCompare(prefix, endWord))
                     std::cout << endWord << std::endl;
+                /*else
+                {
+                    std::cout << "No words finded!" << std::endl;
+                }*/
             }
             woodenAutoComplete(node->children[i], prefix, endWord);
             endWord.pop_back();

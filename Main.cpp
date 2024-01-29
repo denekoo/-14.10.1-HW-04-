@@ -1,5 +1,6 @@
 ﻿#include<iostream>
 #include"Trie.h"
+#include"Dictionary.h"
 // За основу дерева взят код из модуля.
 // функция woodenAutoComplete будет заниматься выводом возможных вариантов слов 
 //прикрутить словарь
@@ -14,7 +15,7 @@ int main()
 	std:: string str = "ab";
 	insert(root,str);
 	
-	std::string str1 = "bd";
+	std::string str1 = "abde";
 	insert(root, str1);
 	std::string str2 = "ac";
 	insert(root, str2);
@@ -25,7 +26,7 @@ int main()
 	insert(root, str3);
 
 	//тест для поиска слов
-	std::string input = "bd";
+	std::string input = "abdecd";
 	woodenAutoComplete(root, input, "");
 
 	
