@@ -12,21 +12,21 @@ int main()
 	std:: string str = "ab";
 	insert(root,str);
 	
-	std::string str1 = "ad";
+	std::string str1 = "bd";
 	insert(root, str1);
 	std::string str2 = "ac";
 	insert(root, str2);
 	
 
 
-	std::string str3 = "ae";
+	std::string str3 = "abcd";
 	insert(root, str3);
 
 	//тест для поиска слов
-	std::string input = "a";
+	std::string input = "bd";
 	woodenAutoComplete(root, input, "");
 
-
+	//T9(root, "");
 
 
 

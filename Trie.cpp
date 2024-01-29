@@ -115,37 +115,75 @@ TrieNode* remove(TrieNode* root, std::string key, int depth)
     return root;
 }
 
-void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord)
+
+bool wordCompare(std::string prefix, std::string endWord)
 {
-    struct TrieNode* node = root;
-    //if (node->isEndOfWord && endWord.size() != 0)
-    //{
-    //    std::cout << prefix + endWord << std::endl;
-    //        endWord.clear();
-    //   
-    //        /* return;*/
-    //}
+    int count = 0; 
     int lenght = prefix.size();
-    for (int index = 0; index < ALPHABET_SIZE; index++)
+    for (int i = 0; i < lenght; ++i)
     {
-        char tempSufix;
-       /* if (node == nullptr)
-            { continue; }*/
-        if (node->children[index])
-        {
-            //tempSufix = index  + 'a';
-            tempSufix = lenght +index  + 'a';
-           // endWord +=tempSufix;
-            endWord.push_back(tempSufix);
-            node = node->children[index]; 
-            woodenAutoComplete(node, prefix, endWord);
-            if (node ->isEndOfWord && endWord.size() != 0)
-            {
-                std::cout << prefix + endWord << std::endl;
-                endWord.clear();
-                /* return;*/
-            }
-        }     
+        if (prefix[i] == endWord[i])
+            ++count;
     }
+    return count == lenght;
 }
 
+
+void woodenAutoComplete( TrieNode* root, std::string prefix, std::string endWord)
+{
+    TrieNode* node = root;
+    for (int i = 0; i < ALPHABET_SIZE; i++)
+    {
+        if (node->children[i])
+        {
+            endWord.push_back(i + 'a');
+            if (node->children[i]->isEndOfWord)
+            {
+                if (wordCompare(prefix, endWord))
+                    std::cout << endWord << std::endl;
+            }
+            woodenAutoComplete(node->children[i], prefix, endWord);
+            endWord.pop_back();
+        }
+    }
+
+
+}
+
+
+
+
+//
+//void woodenAutoComplete(TrieNode* root, std::string prefix, std::string endWord)
+//{
+//    struct TrieNode* node = root;
+//    //if (node->isEndOfWord && endWord.size() != 0)
+//    //{
+//    //    std::cout << prefix + endWord << std::endl;
+//    //        endWord.clear();
+//    //   
+//    //        /* return;*/
+//    //}
+//    int lenght = prefix.size();
+//    for (int index = 0; index < ALPHABET_SIZE; index++)
+//    {
+//        char tempSufix;
+//        /* if (node == nullptr)
+//             { continue; }*/
+//        if (node->children[index])
+//        {
+//            //tempSufix = index  + 'a';
+//            tempSufix = lenght + index + 'a';
+//            // endWord +=tempSufix;
+//            endWord.push_back(tempSufix);
+//            node = node->children[index];
+//            woodenAutoComplete(node, prefix, endWord);
+//            if (node->isEndOfWord && endWord.size() != 0)
+//            {
+//                std::cout << prefix + endWord << std::endl;
+//                endWord.clear();
+//                /* return;*/
+//            }
+//        }
+//    }
+//}

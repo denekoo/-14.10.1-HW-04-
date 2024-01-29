@@ -2,7 +2,7 @@
 #define TRIE_H
 
 #include <string>
-#define ALPHABET_SIZE 10
+#define ALPHABET_SIZE 5
 //const int ALPHABET_SIZE = 26;
 
 // Структура узела дерева 
@@ -22,7 +22,7 @@ bool isEmpty(TrieNode*);
 TrieNode* remove(TrieNode*, std::string, int depth = 0);
 //void findMinPrefixes(TrieNode*, char[], int, string&);
 
-
+bool wordCompare(std::string prefix, std::string endWord);
 void woodenAutoComplete (TrieNode* root, std::string prefix, std::string endWord);
-
+void T9(TrieNode* root, std::string result);
 #endif
